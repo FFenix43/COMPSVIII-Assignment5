@@ -16,6 +16,10 @@ COPY . .
 # build production assets
 RUN npm run build
 
+# Accept build argument 
+ARG VITE_API_URL 
+ENV VITE_API_URL=$VITE_API_URL
+
 # Runtime stage: serve with nginx
 FROM nginx:alpine
 
